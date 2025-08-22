@@ -2,7 +2,7 @@ import React from 'react'
 import CARD_2 from "../../assets/images/card2.png"
 import { LuTrendingUpDown } from "react-icons/lu"
 
-const Authlayout = ({ children }) => {
+const AuthLayout = ({ children }) => {
   return (
     <div className='flex'>
         <div className='w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12'>
@@ -34,7 +34,7 @@ const Authlayout = ({ children }) => {
   )
 }
 
-export default Authlayout
+export default AuthLayout
 
 const StatusInfoCard = ({icon , label , value ,color}) => {
   return (

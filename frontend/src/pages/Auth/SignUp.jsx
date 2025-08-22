@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import Authlayout from '../../components/layouts/Authlayout'
+import AuthLayout from '../../components/Layouts/AuthLayout'
 import {Link, useNavigate } from "react-router-dom"
 import Input from '../../components/Inputs/Input'
 import { validateEmail } from '../../utils/helper'
@@ -78,7 +78,7 @@ const SignUp = () => {
     }
     }
   return (
-  <Authlayout>
+  <AuthLayout>
     <div className='lg:w-[100%] h-auto md:h-full mt-10 md:mt-0 flex flex-col justify-center'>
       <h3 className='text-xl font-semibold text-black'>Create an Account</h3>
       <p className='text-xs text-slate-700 mt-[5px] mb-6'>Join us today by entering your details below.</p>
@@ -126,7 +126,7 @@ const SignUp = () => {
         
       </form>
     </div>
-  </Authlayout>
+  </AuthLayout>
   )
 }
 

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useUserAuth } from '../../hooks/useUserAuth';
-import Dashboardlayout from '../../components/layouts/Dashboardlayout';
+import Dashboardlayout from '../../components/Layouts/DashboardLayout';
 import { API_PATHS } from '../../utils/apiPaths';
 import toast from 'react-hot-toast';
 import axiosInstance from '../../utils/axiosinstance';
 import ExpenseOverview from '../../components/Expense/ExpenseOverview';
-import Modal from '../../components/layouts/Modal';
+import Modal from '../../components/Layouts/Modal';
 import AddExpenseForm from '../../components/Expense/AddExpenseForm';
 import ExpenseList from '../../components/Expense/ExpenseList';
 import DeleteAlert from '../../components/DeleteAlert';
+import DashboardLayout from '../../components/Layouts/DashboardLayout';
 
 const Expense = () => {
   useUserAuth();
@@ -122,7 +123,7 @@ useEffect(() => {
       return () => {}
     }, [])
   return (
-    <Dashboardlayout activeMenu="Expense">
+    <DashboardLayout activeMenu="Expense">
       <div className='my-5 mx-auto'>
         <div className='grid grid-cols-1 gap-6'>
           <div className=''>
@@ -155,7 +156,7 @@ useEffect(() => {
         />
       </Modal>
         </div>
-    </Dashboardlayout>
+    </DashboardLayout>
   )
 }
 
