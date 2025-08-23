@@ -4,7 +4,7 @@ import { API_PATHS } from '../../utils/apiPaths.js';
 import toast from 'react-hot-toast';
 import axiosInstance from '../../utils/axiosinstance.js';
 import ExpenseOverview from '../../components/Expense/ExpenseOverview.jsx';
-import Modal from '../../components/Layouts/Modal.jsx';
+import Modal from '../../components/layouts/Modal.jsx';
 import AddExpenseForm from '../../components/Expense/AddExpenseForm.jsx';
 import ExpenseList from '../../components/Expense/ExpenseList.jsx';
 import DeleteAlert from '../../components/DeleteAlert.jsx';
