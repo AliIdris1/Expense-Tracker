@@ -14,7 +14,7 @@ const app = express()
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve()
 
-if(process.env.NODE_ENV === "devlopmnet") {
+if(process.env.NODE_ENV === "development") {
 app.use(
     cors({
         origin: process.env.CLIENT_URL || "http://localhost:5173",
@@ -34,7 +34,7 @@ app.use("/api/v1/expense" , expenseRoutes)
 app.use("/api/v1/dashboard" , dashboardRoutes)
 
 
-if(process.env.NODE_ENV === "devlopmnet") {
+if(process.env.NODE_ENV === "development") {
 app.use(express.static(path.join(__dirname, "../frontend/dist")))
 
 app.get("*", (req,res) => {
