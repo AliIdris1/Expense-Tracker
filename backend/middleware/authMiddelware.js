@@ -4,6 +4,7 @@ import User from "../models/User.js";
 export const protect = async (req, res, next) => {
   let token;
 
+  // Check if the authorization header exists and starts with "Bearer"
   if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
     try {
       // Get the token from the authorization header
@@ -18,20 +19,14 @@ export const protect = async (req, res, next) => {
       // Continue to the next middleware
       next();
     } catch (error) {
+      // If the token is invalid or has expired
       console.error(error);
-      
-      // Check for the specific TokenExpiredError
-      if (error.name === "TokenExpiredError") {
-        return res.status(401).json({ message: "Token expired. Please log in again." });
-      }
-
-      // Handle other JWT verification errors
-      return res.status(401).json({ message: "Not authorized, token failed." });
+      return res.status(401).json({ message: "Not authorized, token failed" });
     }
   }
 
   // If there is no token in the request headers
   if (!token) {
-    return res.status(401).json({ message: "Not authorized, no token." });
+    return res.status(401).json({ message: "Not authorized, no token" });
   }
 };
