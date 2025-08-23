@@ -1,7 +1,7 @@
 import React from 'react'
 import CARD_2 from "../../assets/images/card2.png"
 import { LuTrendingUpDown } from "react-icons/lu"
-import StatusInfoCard from '../StatusInfoCard'
+import StatusInfoCard from '../StatusInfoCard.jsx'
 
 const AuthLayout = ({ children }) => {
   return (
