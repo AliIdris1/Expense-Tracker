@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { SIDE_MENU_DATA } from "../../utils/data"
-import { UserContext } from '../../context/userContext'
+import { SIDE_MENU_DATA } from "../../utils/data.js"
+import { UserContext } from '../../context/userContext.jsx'
 import {useNavigate} from "react-router-dom"
-import CharAvatar from '../cards/CharAvatar'
+import CharAvatar from '../cards/CharAvatar.jsx'
 const SideMenu = ({activeMenu}) => {
   const {user, clearUser} = useContext(UserContext)
 

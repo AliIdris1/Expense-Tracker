@@ -1,6 +1,6 @@
 import React from 'react'
 import { LuAArrowUp, LuArrowRight, LuSquareArrowRight } from 'react-icons/lu'
-import TransactionInfoCard from '../cards/TransactionInfoCard'
+import TransactionInfoCard from '../cards/TransactionInfoCard.jsx'
 import moment from 'moment'
 
 const ExpenseTransaction = ({transactions, onSeeMore}) => {

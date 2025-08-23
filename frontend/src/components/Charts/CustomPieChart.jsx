@@ -1,7 +1,7 @@
 import React from 'react'
 import {PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip} from "recharts"
-import CustomTooltip from './CustomTooltip'
-import CustomLegend from './CustomLegend'
+import CustomTooltip from './CustomTooltip.jsx'
+import CustomLegend from './CustomLegend.jsx'
 
 const CustomPieChart = ({data, label, totalAmount, colors, showTextAnchor=true}) => {
   // Add a check for empty data
