@@ -1,52 +1,49 @@
-import axios from "axios"
-import { BASE_URL } from "./apiPaths.js"
+import axios from "axios";
+import { API_PATHS } from "./apiPaths";
 
-
+// Create a new Axios instance
 const axiosInstance = axios.create({
-    baseURL: BASE_URL,
-    timeout: 10000,
-    headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-    },
+  baseURL: API_PATHS.BASE_URL,
+  timeout: 10000,
 });
 
-//Request interceptor
-
+// Request Interceptor: Attach the token to every request
 axiosInstance.interceptors.request.use(
-    (config) => {
-        const accessToken = localStorage.getItem("token");
-        if(accessToken) {
-            config.headers.Authorization = `Bearer ${accessToken}`
-        }
-        return config
-    },
-    (error) => {
-        return Promise.reject(error)
+  (config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
     }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
 );
 
-
-//Respone interceptor
+// Response Interceptor: Handle expired tokens
 axiosInstance.interceptors.response.use(
-    (response) => {
-        return response
-    },
-    (error) => {
-        //Handle commom errors globally
-        if(error.response) {
-            if(error.response.status === 401) {
-                //Redirect to login page 
-                window.location.href = "/login";
-            } else if(error.response.status === 500) {
-                console.log("Server Error, Please try again later.")
-            }
-        } else if(error.code == "ECONNABORTED") {
-            console.log("Request Time Out, Please try again later.")
-        }
-        return Promise.reject(error)
+  (response) => {
+    return response;
+  },
+  (error) => {
+    // Check if the error is due to an expired token
+    const isTokenExpired = error.response && 
+                           error.response.status === 401 && 
+                           error.response.data.message === "Token expired. Please log in again.";
+
+    if (isTokenExpired) {
+      console.log("Token expired. Redirecting to login page.");
+      // Clear the expired token from local storage
+      localStorage.removeItem("token");
+      // Redirect the user to the login page
+      // window.location.href works, but for React Router, you might need a different approach
+      // like storing a flag in a state management system (e.g., Context API)
+      window.location.href = "/login";
     }
-)
 
+    return Promise.reject(error);
+  }
+);
 
-export default axiosInstance
+export default axiosInstance;
