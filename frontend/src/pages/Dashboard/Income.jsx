@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Dashboardlayout from '../../components/Layouts/DashboardLayout.jsx'
+import Dashboardlayout from '../../components/layouts/DashboardLayout.jsx'
 import IncomeOverview from '../../components/Income/IncomeOverview.jsx'
 import axiosInstance from '../../utils/axiosinstance.js'
 import { API_PATHS } from '../../utils/apiPaths.js'

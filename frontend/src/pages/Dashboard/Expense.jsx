@@ -8,7 +8,7 @@ import Modal from '../../components/Layouts/Modal.jsx';
 import AddExpenseForm from '../../components/Expense/AddExpenseForm.jsx';
 import ExpenseList from '../../components/Expense/ExpenseList.jsx';
 import DeleteAlert from '../../components/DeleteAlert.jsx';
-import DashboardLayout from '../../components/Layouts/DashboardLayout.jsx';
+import DashboardLayout from '../../components/layouts/DashboardLayout.jsx';
 
 const Expense = () => {
   useUserAuth();
