@@ -34,7 +34,7 @@ app.use("/api/v1/expense" , expenseRoutes)
 app.use("/api/v1/dashboard" , dashboardRoutes)
 
 
-if(process.env.NODE_ENV === "production") {
+if(process.env.NODE_ENV === "development") {
 app.use(express.static(path.join(__dirname, "../frontend/dist")))
 
 app.get("*", (req,res) => {

@@ -65,6 +65,9 @@ export const loginUser = async (req, res) => {
   }
 };
 
+
+
+
 // @desc    Get user information
 // @route   GET /api/auth/user
 // @access  Private

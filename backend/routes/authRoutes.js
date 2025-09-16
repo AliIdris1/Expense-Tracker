@@ -3,7 +3,8 @@ import { protect } from "../middleware/authMiddelware.js";
 import {
   registerUser,
   loginUser,
-  getUserInfo
+  getUserInfo,
+  
 } from "../controllers/authController.js";
 import upload from "../middleware/uploadMiddelware.js";
 

@@ -13,7 +13,7 @@ const UserProvider = ({children}) => {
     
     
     //Function to claer user data (e.g., on logout)
-    const claerUser = () => {
+    const clearUser = () => {
         setUser(null)
     }
 
@@ -22,7 +22,7 @@ const UserProvider = ({children}) => {
         value={{
             user,
             updateUser,
-            claerUser
+            clearUser
         }}
         >
         {children}
